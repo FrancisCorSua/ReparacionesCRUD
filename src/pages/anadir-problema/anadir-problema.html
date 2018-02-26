@@ -1,0 +1,88 @@
+<!--
+  Generated template for the AnadirProblemaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Añadir Problema</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formProblema" (ngSubmit)="guardarProblema()" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>ID de la evaluación:</ion-label>
+        <ion-input formControlName="evaluacionServicioEvaluacionID" type="text" placeholder="ID de la evaluación"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formProblema.get('evaluacionServicioEvaluacionID').errors && formProblema.get('evaluacionServicioEvaluacionID').dirty">
+        <p color="danger" ion-text *ngIf="formProblema.get('evaluacionServicioEvaluacionID').hasError('required')">ID del la evaluación obligatorio</p>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>ID del trabajador:</ion-label>
+        <ion-input formControlName="trabajadorTrabajadorID" type="text" placeholder="ID del trabajador"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formProblema.get('trabajadorTrabajadorID').errors && formProblema.get('trabajadorTrabajadorID').dirty">
+        <p color="danger" ion-text *ngIf="formProblema.get('trabajadorTrabajadorID').hasError('required')">ID del trabajador obligatoria</p>
+      </ion-item>
+      <ion-item>
+          <button ion-button color="primary" type="button" (click)="seleccionarTrabajador()">Seleccionar</button>
+        </ion-item>
+      <ion-item>
+        <ion-label stacked>ID del cliente:</ion-label>
+        <ion-input formControlName="clienteClienteID" type="text" placeholder="ID del cliente"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formProblema.get('clienteClienteID').errors && formProblema.get('clienteClienteID').dirty">
+        <p color="danger" ion-text *ngIf="formProblema.get('clienteClienteID').hasError('required')">ID del cliente obligatorio</p>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Categoría del problema:</ion-label>
+        <ion-input formControlName="problemaCategoria" type="text" placeholder="Categoria del problema"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formProblema.get('problemaCategoria').errors && formProblema.get('problemaCategoria').dirty">
+        <p color="danger" ion-text *ngIf="formProblema.get('problemaCategoria').hasError('required')">Categoria del trabajador obligatorio</p>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Nota del problema:</ion-label>
+        <ion-input formControlName="problemaNota" type="text" placeholder="Nota del problema"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formProblema.get('problemaNota').errors && formProblema.get('problemaNota').dirty">
+        <p color="danger" ion-text *ngIf="formProblema.get('problemaNota').hasError('required')">Nota obligatoria</p>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Estado del problema:</ion-label>
+        <ion-input formControlName="problemaEstado" type="text" placeholder="Estado del problema"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formProblema.get('problemaEstado').errors && formProblema.get('problemaEstado').dirty">
+        <p color="danger" ion-text *ngIf="formProblema.get('problemaEstado').hasError('required')">Estado obligatorio</p>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Fecha del problema:</ion-label>
+        <ion-input formControlName="problemaFecha" type="text" placeholder="aaaa-mm-dd"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formProblema.get('problemaFecha').errors && formProblema.get('problemaFecha').dirty">
+        <p color="danger" ion-text *ngIf="formProblema.get('problemaFecha').hasError('required')">Fecha obligatoria</p>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Trabajador solicitado:</ion-label>
+        <ion-input formControlName="trabajadorSolicitado" type="text" placeholder="Nombre del trabajador solicitado"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formProblema.get('trabajadorSolicitado').errors && formProblema.get('trabajadorSolicitado').dirty">
+        <p color="danger" ion-text *ngIf="formProblema.get('trabajadorSolicitado').hasError('required')">Ponga el nombre del trabajador que quiera</p>
+      </ion-item>
+    </ion-list>
+    <ion-row>
+      <button ion-button block type="submit" [disabled]="formProblema.invalid">Guardar</button>
+    </ion-row>
+  </form>
+  <ion-item-divider color="light"></ion-item-divider>
+
+  <ion-item-divider color="light"></ion-item-divider>
+  <ion-row>
+    <button (click)="volver()" ion-button>CANCELAR</button>
+  </ion-row>
+</ion-content>

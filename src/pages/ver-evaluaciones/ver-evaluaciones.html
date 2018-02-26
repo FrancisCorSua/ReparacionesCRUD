@@ -1,0 +1,42 @@
+<!--
+  Generated template for the VerEvaluacionesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>verEvaluaciones</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngFor="let evaluacion of evaluaciones">
+    <ion-item-sliding>
+      <ion-item>
+        <h2>{{evaluacion.evaluacionID}}</h2>
+        <p>{{evaluacion.calificacion}}</p>
+        <p>{{evaluacion.nota}}</p>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="primary" (click)="editarEvaluacion(evaluacion)">Editar</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-item-divider color="light"></ion-item-divider>
+
+  <ion-row>
+    <button (click)="anadirEvaluacion()" ion-button>Añadir Evaluacion</button>
+  </ion-row>
+
+  <ion-item-divider color="light"></ion-item-divider>
+
+  <ion-row>
+    <ion-input type="number" [(ngModel)]="numero" placeholder="ID de la evaluacioinr"></ion-input>
+    <button (click)="deleteEvaluacionServicios()" ion-button color="danger">Borrar evaluacion</button>
+  </ion-row>
+</ion-content>
